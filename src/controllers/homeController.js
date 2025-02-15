@@ -4,14 +4,16 @@ const getHomePage = async (req, res) => {
     return res.render('../views/home.ejs')
 }
 
+const getCreateUserPage = async (req, res) => {
+    return res.render('../views/createUser.ejs')
+}
+
 const createUser = async (req, res) => {
     let { email, name, city } = req.body;
-    connection.query(`INSERT INTO Users(email, name, city)
+    const [results, fields] = await connection.query(
+        `INSERT INTO Users(email, name, city)
         VALUES(?, ?, ?)`,
-        [email, name, city],
-        function (err, results) {
-            // console.log(results);
-            res.send('Created user successfully')
-        })
+        [email, name, city])
+    res.send('Created user successfully')
 }
-module.exports = { getHomePage, createUser }
+module.exports = { getHomePage, createUser, getCreateUserPage }

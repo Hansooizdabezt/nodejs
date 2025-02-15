@@ -45,3 +45,21 @@
     margin: 10px;
     cursor: pointer;
   }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  tr:hover {background-color: coral;}
+
+
+  .table-container{
+  margin: 10px 20px;
+  }
+  
