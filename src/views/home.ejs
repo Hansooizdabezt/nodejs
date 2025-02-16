@@ -37,8 +37,9 @@
                         <%=user.email%>
                     </td>
                     <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
+
+                        <a href="/edit-user-page/<%=user.id%>"><button>Edit</button></a>
+                        <a href="/delete-user"><button>Delete</button></a>
                     </td>
                 </tr>
                 <% }); %>
