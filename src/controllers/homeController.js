@@ -16,7 +16,7 @@ const createUser = async (req, res) => {
         `INSERT INTO Users(email, name, city)
         VALUES(?, ?, ?)`,
         [email, name, city])
-    res.send('Created user successfully')
+    res.redirect('/');
 }
 
 const getEditUserPage = async (req, res) => {
@@ -25,6 +25,14 @@ const getEditUserPage = async (req, res) => {
     return res.render('editUser.ejs', { user: user })
 }
 
-const updateUser = async (req, res) => { }
+const updateUser = async (req, res) => {
+    let { email, name, city, userId } = req.body;
+    const [results, fields] = await connection.query(
+        `UPDATE Users
+        SET email = ?, name =?, city =? WHERE id = ?`,
+        [email, name, city, userId])
+
+    res.redirect('/');
+}
 
 module.exports = { getHomePage, createUser, getCreateUserPage, getEditUserPage, updateUser }

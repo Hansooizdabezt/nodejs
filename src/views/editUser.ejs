@@ -17,6 +17,10 @@
         <form action="/edit-user" method="post">
             <fieldset>
                 <legend>Edit user:</legend>
+                <div class="input-group d-none">
+                    <label>Id: </label>
+                    <input type="text" name="userId" value="<%=user.id%>">
+                </div>
 
                 <div class="input-group">
                     <label>Email: </label>
