@@ -1,11 +1,13 @@
 const connection = require('../config/database')
+const { getAllUsers } = require('../services/CRUDService')
 
 const getHomePage = async (req, res) => {
-    return res.render('../views/home.ejs')
+    let results = await getAllUsers();
+    return res.render('home.ejs', { listUsers: results });
 }
 
 const getCreateUserPage = async (req, res) => {
-    return res.render('../views/createUser.ejs')
+    return res.render('createUser.ejs')
 }
 
 const createUser = async (req, res) => {
